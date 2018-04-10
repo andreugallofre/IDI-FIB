@@ -36,6 +36,7 @@ class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
     void modelTransform2 ();
     void projectTransform();
     void viewTransform();
+    void calcularCaixaMinima(glm::vec3 x, glm::vec3 y);
 
     // attribute locations
     GLuint vertexLoc, colorLoc;
@@ -51,6 +52,7 @@ class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
     float rotation = 0.0;
     float rotation2 = M_PI/2;
 
+    glm::vec3 radi, centre;
     //Models
     Model m; 
 

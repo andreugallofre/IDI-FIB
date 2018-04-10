@@ -174,11 +174,17 @@ void MyGLWidget::projectTransform () {
 
 void MyGLWidget::viewTransform () {
   // glm::lookAt (OBS, VRP, UP)
-  glm::mat4 View = glm::lookAt (glm::vec3(0,0,1),
-  glm::vec3(0,0,0), glm::vec3(0,1,0));
+  glm::mat4 View = glm::lookAt (glm::vec3(0,0,1), glm::vec3(0,0,0), glm::vec3(0,1,0));
   glUniformMatrix4fv (viewLoc, 1, GL_FALSE, &View[0][0]);
 }
 
+void MyGLWidget::calcularCaixaMinima(glm::vec3 max, glm::vec3 min){
+  centre = max - abs(min);
+  radi = centre + max;
+  cout << centre << " " << radi;
+
+  
+}
 
 void MyGLWidget::carregaShaders()
 {
