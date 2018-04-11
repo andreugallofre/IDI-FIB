@@ -39,6 +39,7 @@ class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
     void projectTransform2 ();
     void viewTransform ();
     void viewTransform2 ();
+    void viewTransform3 ();
     void modelTransformTerra ();
     void modelTransformPatricio ();
     void modelTransformPatricio2 ();
@@ -48,6 +49,8 @@ class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
     glm::vec3 obs = glm::vec3(2.0, 1.0, 2.0);
     glm::vec3 vrp = glm::vec3(0.0, 1.0, 0.0);
     glm::vec3 up = glm::vec3(0.0, 1.0, 0.0);
+
+    glm::vec3 test2 = glm::vec3(0.0, 0.0, 0.0);;
 
     // VAO i VBO names
     GLuint VAO_Patr;
@@ -63,6 +66,8 @@ class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
     Model patr;
     // paràmetres calculats a partir de la capsa contenidora del model
     glm::vec3 centreBasePatr;
-    float escala, rotaX = 0.0;
+    float escala, rotaX = 5*M_PI/4;
+    float r;
+
 };
 

@@ -128,9 +128,20 @@ void MyGLWidget::viewTransform ()
 void MyGLWidget::viewTransform2 ()
 {
   glm::mat4 View;  // Matriu de posició i orientació
-  //OVS VRP UP
+  //OBS VRP UP
   View = glm::lookAt(obs,vrp,up);
-  View = glm::rotate(View,rotaX,glm::vec3(0,1,0));
+  glUniformMatrix4fv (viewLoc, 1, GL_FALSE, &View[0][0]);
+}
+
+void MyGLWidget::viewTransform3 ()
+{
+  glm::mat4 View;  // Matriu de posició i orientació
+  //OBS VRP UP
+
+  r = sqrt(pow(obs[0]-vrp[0],2) + pow(obs[1]-vrp[1],2) + pow(obs[2]-vrp[2],2));
+  vrp = obs + glm::vec3(r*cos(rotaX), 0, r*sin(rotaX));
+
+  View = glm::lookAt(obs,vrp,up);
   glUniformMatrix4fv (viewLoc, 1, GL_FALSE, &View[0][0]);
 }
 
@@ -284,31 +295,31 @@ void MyGLWidget::keyPressEvent(QKeyEvent* event)
     }
     case Qt::Key_Left: { 
       // aquesta tecla ha de fer que la càmera giri a la seva esquerra
-      rotaX -= M_PI/8;
-      viewTransform2 ();
+      rotaX -= 0.1;
+      viewTransform3();
       break;
     }
     case Qt::Key_Right: { 
       // aquesta tecla ha de fer que la càmera giri a la seva dreta
-      rotaX += M_PI/8;
-      viewTransform2 ();
+      rotaX += 0.1;
+      viewTransform3();
       break;
     }
     case Qt::Key_Up: { 
       // aquesta tecla ha de fer que la càmera es mogui endavant
-      obs[2] -= 0.1;
-      vrp[2] -= 0.1;
-      obs[0] -= 0.1;
-      vrp[0] -= 0.1;
+      obs[2] += 0.1*sin(rotaX);
+      vrp[2] += 0.1*sin(rotaX);
+      obs[0] += 0.1*cos(rotaX);
+      vrp[0] += 0.1*cos(rotaX);
       viewTransform2 ();
       break;
     }
     case Qt::Key_Down: { 
       // aquesta tecla ha de fer que la càmera es mogui endarrera
-      obs[2] += 0.1;
-      vrp[2] += 0.1;
-      obs[0] += 0.1;
-      vrp[0] += 0.1;
+      obs[2] -= 0.1*sin(rotaX);
+      vrp[2] -= 0.1*sin(rotaX);
+      obs[0] -= 0.1*cos(rotaX);
+      vrp[0] -= 0.1*cos(rotaX);
       viewTransform2 ();
       break;
     }
