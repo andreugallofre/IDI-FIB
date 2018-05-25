@@ -7,9 +7,10 @@ in vec3 matdiff1;
 in vec3 matspec1;
 in float matshin1;
 in vec3 matamb1;
-in vec3 L1;
-in vec4 vertexSCO1;
-in vec3 NormSCO1;
+
+in vec3 L;
+in vec4 vertexSCO;
+in vec3 NormSCO;
 
 uniform vec3 colFocus;
 uniform vec4 posFocus;
@@ -56,9 +57,9 @@ void main()
 	vec3 L2, NormSCO2;
 	vec3 f2;
 	
-	L2 = normalize(L1);
-    NormSCO2 = normalize(NormSCO1);
+	L2 = normalize(L);
+    NormSCO2 = normalize(NormSCO);
 
-    f2 = Phong(NormSCO2, L2, vertexSCO1);
+    f2 = Phong(NormSCO2, L2, vertexSCO);
 	FragColor = vec4(f2,1);	
 }

@@ -37,7 +37,8 @@ void MyGLWidget::iniEscena ()
 
 void MyGLWidget::iniCamera ()
 {
-  angleY = 0.0;
+  angleY = M_PI/4.0;
+  angleX = 0.0;
   perspectiva = true;
 
   projectTransform ();
@@ -171,7 +172,7 @@ void MyGLWidget::createBuffersTerraIParet ()
   // Definim el material del terra
   glm::vec3 amb(0.2,0,0.2);
   glm::vec3 diff(0.2,0.2,0.6);
-  glm::vec3 spec(0,0,0);
+  glm::vec3 spec(0.6,0.6,0.6);
   float shin = 100;
 
   // Fem que aquest material afecti a tots els vèrtexs per igual
@@ -287,6 +288,9 @@ void MyGLWidget::modelTransformCamara (){
 
   glm::vec3 llum = glm::vec3(0.2,0.2,0.2);
   glUniform3fv(llumAmbient, 1, &llum[0]);
+
+  glm::vec4 pos = glm::vec4(0,0,0,1);
+  glUniform4fv(posFocus, 1, &pos[0]);
 }
 
 void MyGLWidget::modelTransformModel ()
@@ -307,7 +311,8 @@ void MyGLWidget::modelTransformModel2 ()
   glm::vec3  posicio(0.5,0.0,0.5);
   TG = glm::translate(TG, posicio);
   TG = glm::scale(TG, glm::vec3(escala2, escala2, escala2));
-  TG = glm::rotate(TG, (float)M_PI/4 ,glm::vec3(0,1,0));
+  double test = 3.0*M_PI/4.0;
+  TG = glm::rotate(TG, -(float)test ,glm::vec3(0,1,0));
   TG = glm::translate(TG, -centreBasePatr);
   
   glUniformMatrix4fv (transLoc, 1, GL_FALSE, &TG[0][0]);
@@ -333,14 +338,12 @@ void MyGLWidget::projectTransform ()
 void MyGLWidget::viewTransform ()
 {
   glm::mat4 View;  // Matriu de posició i orientació
-  View = glm::translate(glm::mat4(1.f), glm::vec3(0, -1, -2*radiEsc));
+  View = glm::translate(glm::mat4(1.f), glm::vec3(0, 0, -2*radiEsc));
+  View = glm::rotate(View, -angleX, glm::vec3(1, 0, 0));
   View = glm::rotate(View, -angleY, glm::vec3(0, 1, 0));
-
-  glm::vec4 pos = glm::vec4(1,1,1,1);
-  pos = View * pos;
-  glUniform4fv(posFocus, 1, &pos[0]);
-
+  //View = glm::translate(View , glm::vec3(0, -1, 0));
   glUniformMatrix4fv (viewLoc, 1, GL_FALSE, &View[0][0]);
+
 }
 
 void MyGLWidget::calculaCapsaModel ()
@@ -409,6 +412,7 @@ void MyGLWidget::mouseMoveEvent(QMouseEvent *e)
   {
     // Fem la rotació
     angleY += (e->x() - xClick) * M_PI / 180.0;
+    angleX += (e->y() - yClick) * M_PI / 180.0;
     viewTransform ();
   }
 
