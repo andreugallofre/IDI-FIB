@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>606</width>
+    <height>609</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>110</y>
+     <width>261</width>
+     <height>191</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QRadioButton" name="redButton">
+      <property name="text">
+       <string>Verme&amp;ll</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QRadioButton" name="greenButton">
+      <property name="text">
+       <string>Verd</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QRadioButton" name="blueButton">
+      <property name="text">
+       <string>Bla&amp;u</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>110</y>
+     <width>271</width>
+     <height>191</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QLabel" name="red_label">
+      <property name="styleSheet">
+       <string notr="true">background: red</string>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="green_label">
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: green
+</string>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="blue_label">
+      <property name="styleSheet">
+       <string notr="true">background: blue
+</string>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>340</y>
+     <width>88</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>redButton</sender>
+   <signal>clicked()</signal>
+   <receiver>red_label</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>148</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>435</x>
+     <y>140</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>redButton</sender>
+   <signal>clicked()</signal>
+   <receiver>blue_label</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>148</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>435</x>
+     <y>270</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>redButton</sender>
+   <signal>clicked()</signal>
+   <receiver>green_label</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>148</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>435</x>
+     <y>205</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>greenButton</sender>
+   <signal>clicked()</signal>
+   <receiver>red_label</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>203</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>435</x>
+     <y>140</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>greenButton</sender>
+   <signal>clicked()</signal>
+   <receiver>green_label</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>203</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>435</x>
+     <y>205</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>greenButton</sender>
+   <signal>clicked()</signal>
+   <receiver>blue_label</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>203</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>435</x>
+     <y>270</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>blueButton</sender>
+   <signal>clicked()</signal>
+   <receiver>red_label</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>258</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>435</x>
+     <y>140</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>blueButton</sender>
+   <signal>clicked()</signal>
+   <receiver>blue_label</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>258</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>435</x>
+     <y>270</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>blueButton</sender>
+   <signal>clicked()</signal>
+   <receiver>green_label</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>258</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>435</x>
+     <y>205</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>413</x>
+     <y>356</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>302</x>
+     <y>304</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

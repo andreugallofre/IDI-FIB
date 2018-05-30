@@ -247,6 +247,8 @@ void MyGLWidget::carregaShaders()
   transLoc = glGetUniformLocation (program->programId(), "TG");
   projLoc = glGetUniformLocation (program->programId(), "proj");
   viewLoc = glGetUniformLocation (program->programId(), "view");
+
+  //Demanem identificadors per la llum :)
 }
 
 void MyGLWidget::calculaCapsaModel ()

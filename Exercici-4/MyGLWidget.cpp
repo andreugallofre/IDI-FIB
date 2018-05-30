@@ -280,6 +280,8 @@ void MyGLWidget::carregaShaders()
   colFocus = glGetUniformLocation (program->programId(), "colFocus");
   posFocus = glGetUniformLocation (program->programId(), "posFocus");
   llumAmbient = glGetUniformLocation (program->programId(), "llumAmbient");
+
+  test = glGetUniformLocation (program->programId(), "test");
 }
 
 void MyGLWidget::modelTransformCamara (){
@@ -291,6 +293,9 @@ void MyGLWidget::modelTransformCamara (){
 
   glm::vec4 pos = glm::vec4(0,0,0,1);
   glUniform4fv(posFocus, 1, &pos[0]);
+
+  int x = 3;
+  glUniform1i(test, x);
 }
 
 void MyGLWidget::modelTransformModel ()
