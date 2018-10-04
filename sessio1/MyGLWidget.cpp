@@ -60,8 +60,8 @@ void MyGLWidget::resizeGL (int w, int h)
 void MyGLWidget::createBuffersVAO1()
 {
   glm::vec3 Vertices[9];  // Tres vèrtexs amb X, Y i Z
-  Vertices[0] = glm::vec3(-1.0, -1.0, 0.0);
-  Vertices[1] = glm::vec3(0.0, -1.0, 0.0);
+  Vertices[0] = glm::vec3(0.0, -1.0, 0.0);
+  Vertices[1] = glm::vec3(-1.0, -1.0, 0.0);
   Vertices[2] = glm::vec3(-1.0, 0.0, 0.0);
   Vertices[3] = glm::vec3(0.0, -1.0, 0.0);
   Vertices[4] = glm::vec3(0.0, 0.0, 0.0);
